@@ -1,10 +1,13 @@
 import React, { memo } from 'react'
-import '@/assets/css/reset.less'
+import '@/assets/css/index.less'
+import { useRoutes } from 'react-router-dom'
+import routes from './router'
 const App = memo(() => {
   return (
     <div>
-      App
-      <a href="">aribnb</a>
+      <div className="header">header</div>
+      <div className="content">{useRoutes(routes)}</div>
+      <div className="footer">footer</div>
     </div>
   )
 })
