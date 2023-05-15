@@ -43,7 +43,7 @@ export const RightWrapper = styled.div`
     color: ${(props) => props.theme.text.primaryColor};
     cursor: pointer;
 
-    //阴影复用
+    //复用阴影动画效果的混入
     ${(props) => props.theme.mixin.boxShadow};
   }
 `
