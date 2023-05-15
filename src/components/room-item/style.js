@@ -34,7 +34,10 @@ export const ItemWrapper = styled.div`
     margin: 10px 0 5px;
     font-size: 12px;
     font-weight: 700;
-    color: ${(props) => props.verifyColor};
+    color: ${(props) => {
+      const { verifycolor } = props
+      return verifycolor
+    }};
   }
 
   .name {
