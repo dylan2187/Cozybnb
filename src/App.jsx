@@ -2,12 +2,14 @@ import React, { memo } from 'react'
 import '@/assets/css/index.less'
 import { useRoutes } from 'react-router-dom'
 import routes from './router'
+import AppHeader from './components/app-header'
+import AppFooter from './components/app-footer'
 const App = memo(() => {
   return (
     <div>
-      <div className="header">header</div>
+      <AppHeader></AppHeader>
       <div className="content">{useRoutes(routes)}</div>
-      <div className="footer">footer</div>
+      <AppFooter></AppFooter>
     </div>
   )
 })
