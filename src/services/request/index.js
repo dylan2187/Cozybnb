@@ -37,4 +37,5 @@ class httpRequest {
   }
 }
 
-export default new httpRequest(BASE_URL, TIMEOUT)
+const instance = new httpRequest(BASE_URL, TIMEOUT)
+export default instance

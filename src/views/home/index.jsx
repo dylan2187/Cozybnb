@@ -1,34 +1,29 @@
-import React, { memo, useEffect, useState } from 'react'
-import request from '@/services'
+import React, { memo, useEffect } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+
+import { fetchHomeDataAction } from '@/store/modules/home'
+import { HomeWrapper } from './style'
+import HomeBanner from './c-cpns/home-banner'
 
 const Home = memo(() => {
-  const [highScore, setHighScore] = useState([])
+  // 从redux中获取数据
+  const { goodPriceInfo } = useSelector(
+    (state) => ({
+      goodPriceInfo: state.home.goodPriceInfo,
+    }),
+    shallowEqual
+  )
+
+  // 派发异步事件：发送网络请求，将请求的数据保存到redux store
+  const dispatch = useDispatch()
   useEffect(() => {
-    request.get({ url: '/home/highscore' }).then((res) => {
-      console.log('请求得到的数据： ', res)
-      setHighScore(res)
-    })
-  }, [])
-  console.log(highScore)
+    dispatch(fetchHomeDataAction())
+  }, [dispatch])
   return (
-    <div>
-      <h1>home</h1>
-      <h2>{highScore.title}</h2>
-      <h4>{highScore.subtitle}</h4>
-      {highScore.list && (
-        <ul>
-          {highScore.list.map((item, index) => {
-            return <li key={item.id}>{item.name}</li>
-          })}
-        </ul>
-      )}
-      {/* 可选链实现条件渲染 */}
-      <ul>
-        {highScore?.list?.map((item, index) => {
-          return <li key={item.id}>{item.name}</li>
-        })}
-      </ul>
-    </div>
+    <HomeWrapper>
+      <h2>{goodPriceInfo.title}</h2>
+      <HomeBanner />
+    </HomeWrapper>
   )
 })
 
