@@ -45,5 +45,36 @@ export const RightWrapper = styled.div`
 
     //复用阴影动画效果的混入
     ${(props) => props.theme.mixin.boxShadow};
+
+    .pannel {
+      position: absolute;
+      right: 0;
+      top: 60px;
+      width: 240px;
+      /* height: 240px; */
+      background-color: #fff;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+      font-weight: 400;
+      .top,
+      .bottom {
+        padding: 10px 0;
+
+        .item {
+          height: 40px;
+          line-height: 40px;
+          padding: 0 16px;
+          &:hover {
+            font-weight: 600;
+            background-color: #f5f5f5;
+            ${(props) => props.theme.mixin.boxShadow}
+          }
+        }
+      }
+      .top {
+        border-bottom: 1px solid #eee;
+      }
+    }
   }
 `
