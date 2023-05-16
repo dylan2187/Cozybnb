@@ -4,14 +4,20 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import { HomeWrapper } from './style'
 import HomeBanner from './c-cpns/home-banner'
-import SectionHeader from '@/components/section-header'
-import SectionRooms from '@/components/section-rooms'
+import HomeSection4 from './c-cpns/home-section-4'
 
 const Home = memo(() => {
   // 从redux中获取数据
   const { goodPriceInfo } = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
+    }),
+    shallowEqual
+  )
+
+  const { highScoreInfo } = useSelector(
+    (state) => ({
+      highScoreInfo: state.home.highScoreInfo,
     }),
     shallowEqual
   )
@@ -25,12 +31,8 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        <div className="good-price">
-          <SectionHeader
-            title={goodPriceInfo.title}
-            subtitle={goodPriceInfo.subtitle}></SectionHeader>
-          <SectionRooms roomList={goodPriceInfo.list}></SectionRooms>
-        </div>
+        <HomeSection4 infoData={goodPriceInfo}></HomeSection4>
+        <HomeSection4 infoData={highScoreInfo}></HomeSection4>
       </div>
     </HomeWrapper>
   )
