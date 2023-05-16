@@ -5,19 +5,16 @@ import { fetchHomeDataAction } from '@/store/modules/home'
 import { HomeWrapper } from './style'
 import HomeBanner from './c-cpns/home-banner'
 import HomeSection4 from './c-cpns/home-section-4'
+import SectionHeader from '@/components/section-header'
+import SectionRooms from '@/components/section-rooms'
 
 const Home = memo(() => {
   // 从redux中获取数据
-  const { goodPriceInfo } = useSelector(
+  const { goodPriceInfo, highScoreInfo, discountInfo } = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
-    }),
-    shallowEqual
-  )
-
-  const { highScoreInfo } = useSelector(
-    (state) => ({
       highScoreInfo: state.home.highScoreInfo,
+      discountInfo: state.home.discountInfo,
     }),
     shallowEqual
   )
@@ -33,6 +30,14 @@ const Home = memo(() => {
       <div className="content">
         <HomeSection4 infoData={goodPriceInfo}></HomeSection4>
         <HomeSection4 infoData={highScoreInfo}></HomeSection4>
+        <div className="discount">
+          <SectionHeader
+            title={discountInfo.title}
+            subtitle={discountInfo.subtitle}></SectionHeader>
+          <SectionRooms
+            roomList={discountInfo.dest_list?.['成都']}
+            itemWidth="33.3%"></SectionRooms>
+        </div>
       </div>
     </HomeWrapper>
   )

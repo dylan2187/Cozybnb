@@ -19,3 +19,13 @@ export function getHomeHighScoreData() {
     url: '/home/highscore',
   })
 }
+
+/**
+ * @desc: 获取折扣房源
+ * @return: {*}
+ */
+export function getHomeDiscountData() {
+  return httpRequest.get({
+    url: '/home/discount',
+  })
+}

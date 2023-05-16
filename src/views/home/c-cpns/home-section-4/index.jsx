@@ -5,13 +5,15 @@ import React, { memo } from 'react'
 import { SectionWrapper } from './style'
 
 const HomeSection4 = memo((props) => {
-  const { infoData } = props
+  const { infoData, itemWidth = '25%' } = props
   return (
     <SectionWrapper>
       <SectionHeader
         title={infoData.title}
         subtitle={infoData.subtitle}></SectionHeader>
-      <SectionRooms roomList={infoData.list}></SectionRooms>
+      <SectionRooms
+        roomList={infoData.list}
+        itemWidth={itemWidth}></SectionRooms>
     </SectionWrapper>
   )
 })

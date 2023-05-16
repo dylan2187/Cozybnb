@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-05-15 20:48:43
  * @LastEditors: kai && neodylan@foxmail.com
- * @LastEditTime: 2023-05-15 23:07:11
+ * @LastEditTime: 2023-05-16 11:56:01
  * @FilePath: /airbnb/src/components/room-item/index.jsx
  * 用于封装每一个房间的item
  */
@@ -12,9 +12,11 @@ import { Rating } from '@mui/material'
 import { ItemWrapper } from './style'
 
 const RoomItem = memo((props) => {
-  const { itemData } = props
+  const { itemData, itemWidth } = props
   return (
-    <ItemWrapper verifycolor={itemData?.verify_info?.text_color || '#39576a'}>
+    <ItemWrapper
+      verifycolor={itemData?.verify_info?.text_color || '#39576a'}
+      itemWidth={itemWidth}>
       <div className="inner">
         <div className="cover">
           <img src={itemData.picture_url} alt="" />
