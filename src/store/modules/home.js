@@ -2,6 +2,7 @@ import {
   getHomeGoodPriceData,
   getHomeHighScoreData,
   getHomeDiscountData,
+  getHomeHotRecommendData,
 } from '@/services'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
@@ -19,6 +20,9 @@ export const fetchHomeDataAction = createAsyncThunk(
     getHomeDiscountData().then((res) => {
       dispatch(changeDiscountInfoAction(res))
     })
+    getHomeHotRecommendData().then((res) => {
+      dispatch(changeHotRecommendInfoAction(res))
+    })
 
     //这样写不是很合理：因为这两个请求是没有先后顺序的，谁先有response就先用谁。async/await的话就两个同步了
     // const goodPrice = await getHomeGoodPrice()
@@ -34,6 +38,7 @@ const homeSlice = createSlice({
     goodPriceInfo: {},
     highScoreInfo: {},
     discountInfo: {},
+    hotRecommendInfo: {},
   },
   reducers: {
     changeGoodPriceInfoAction(state, { payload }) {
@@ -44,6 +49,9 @@ const homeSlice = createSlice({
     },
     changeDiscountInfoAction(state, { payload }) {
       state.discountInfo = payload
+    },
+    changeHotRecommendInfoAction(state, { payload }) {
+      state.hotRecommendInfo = payload
     },
   },
   extraReducers: {
@@ -59,5 +67,6 @@ export const {
   changeGoodPriceInfoAction,
   changeHighScoreInfoAction,
   changeDiscountInfoAction,
+  changeHotRecommendInfoAction,
 } = homeSlice.actions
 export default homeSlice.reducer
