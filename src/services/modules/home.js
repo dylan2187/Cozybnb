@@ -30,6 +30,10 @@ export function getHomeDiscountData() {
   })
 }
 
+/**
+ * @desc: 获取热门请求数据
+ * @return: {*}
+ */
 export function getHomeHotRecommendData() {
   return httpRequest.get({
     url: '/home/hotrecommenddest',
