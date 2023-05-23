@@ -1,5 +1,6 @@
 import React, { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+// import { Skeleton } from '@mui/material'
 
 import { fetchHomeDataAction } from '@/store/modules/home'
 import { HomeWrapper } from './style'
@@ -31,12 +32,28 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
+        {/* {isEmptyObj(hotRecommendInfo) ? (
+          <HomeSectionWithBar infoData={hotRecommendInfo}></HomeSectionWithBar>
+        ) : (
+          <Skeleton variant="rect" width={210} height={118} />
+        )} */}
         {isEmptyObj(discountInfo) && (
           <HomeSectionWithBar infoData={discountInfo}></HomeSectionWithBar>
         )}
         {isEmptyObj(hotRecommendInfo) && (
           <HomeSectionWithBar infoData={hotRecommendInfo}></HomeSectionWithBar>
         )}
+
+        {/* {item ? (
+          <img
+            style={{ width: 210, height: 118 }}
+            alt={item.title}
+            src={item.src}
+          />
+        ) : (
+          <Skeleton variant="rect" width={210} height={118} />
+        )} */}
+
         <HomeSection4 infoData={goodPriceInfo}></HomeSection4>
         <HomeSection4 infoData={highScoreInfo}></HomeSection4>
       </div>
