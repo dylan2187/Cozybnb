@@ -4,6 +4,7 @@ import { SectionWrapper } from './style'
 import SectionHeader from '@/components/section-header'
 import SectionTabs from '@/components/section-tabs'
 import SectionRooms from '@/components/section-rooms'
+import SectionFooter from '@/components/section-footer'
 
 const HomeSectionWithBar = memo((props) => {
   const { infoData } = props
@@ -29,6 +30,7 @@ const HomeSectionWithBar = memo((props) => {
       <SectionRooms
         roomList={infoData.dest_list?.[name]}
         itemWidth="33.3%"></SectionRooms>
+      <SectionFooter name={name}></SectionFooter>
     </SectionWrapper>
   )
 })

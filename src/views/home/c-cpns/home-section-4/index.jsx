@@ -1,8 +1,16 @@
+/*
+ * @Date: 2023-05-16 10:29:00
+ * @LastEditors: kai && neodylan@foxmail.com
+ * @LastEditTime: 2023-05-23 20:58:10
+ * @FilePath: /airbnb/src/views/home/c-cpns/home-section-4/index.jsx
+ * 有4列（也可以是3列，修改itemWidth）item的section组件（包括header rooms footer）
+ */
 import SectionHeader from '@/components/section-header'
 import SectionRooms from '@/components/section-rooms'
 import PropTypes from 'prop-types'
 import React, { memo } from 'react'
 import { SectionWrapper } from './style'
+import SectionFooter from '@/components/section-footer'
 
 const HomeSection4 = memo((props) => {
   const { infoData, itemWidth = '25%' } = props
@@ -14,6 +22,7 @@ const HomeSection4 = memo((props) => {
       <SectionRooms
         roomList={infoData.list}
         itemWidth={itemWidth}></SectionRooms>
+      <SectionFooter></SectionFooter>
     </SectionWrapper>
   )
 })
