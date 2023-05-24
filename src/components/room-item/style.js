@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const ItemWrapper = styled.div`
+  flex-shrink: 0;
   box-sizing: border-box;
-  //每行展示4个
+  //每行展示4个 25% 展示3个 33.3333%
   width: ${(props) => props.itemWidth};
   padding: 8px;
 

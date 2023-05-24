@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-05-24 13:46:43
  * @LastEditors: kai && neodylan@foxmail.com
- * @LastEditTime: 2023-05-24 14:31:53
+ * @LastEditTime: 2023-05-24 14:58:51
  * @FilePath: /airbnb/src/views/home/c-cpns/home-longfor/index.jsx
  * 用于封装home中的向往城市模块 longfor
  */
@@ -26,13 +26,12 @@ const HomeLongfor = memo((props) => {
           })}
         </ScrollView>
       </div>
-      {/* <SectionRooms roomList={infoData.list} itemWidth={'25%'}></SectionRooms> */}
     </LongforWrapper>
   )
 })
 
 HomeLongfor.propTypes = {
-  longforInfo: PropTypes.object,
+  infoData: PropTypes.object,
 }
 
 export default HomeLongfor

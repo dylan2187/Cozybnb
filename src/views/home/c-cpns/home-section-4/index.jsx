@@ -1,9 +1,9 @@
 /*
  * @Date: 2023-05-16 10:29:00
  * @LastEditors: kai && neodylan@foxmail.com
- * @LastEditTime: 2023-05-23 20:58:10
+ * @LastEditTime: 2023-05-24 15:57:21
  * @FilePath: /airbnb/src/views/home/c-cpns/home-section-4/index.jsx
- * 有4列（也可以是3列，修改itemWidth）item的section组件（包括header rooms footer）
+ * 有4列（也可以是3列，修改itemWidth）item的section组件（包括header rooms footer）（不带选项卡和横向滚动组件）
  */
 import SectionHeader from '@/components/section-header'
 import SectionRooms from '@/components/section-rooms'

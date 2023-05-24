@@ -41,11 +41,21 @@ export function getHomeHotRecommendData() {
 }
 
 /**
- * @desc:获取向往城市 
+ * @desc:获取向往城市数据
  * @return: {*}
  */
 export function getHomeLongforData() {
   return httpRequest.get({
     url: '/home/longfor',
+  })
+}
+
+/**
+ * @desc: 获取plus房源数据
+ * @return: {*}
+ */
+export function getHomePlusData() {
+  return httpRequest.get({
+    url: '/home/plus',
   })
 }

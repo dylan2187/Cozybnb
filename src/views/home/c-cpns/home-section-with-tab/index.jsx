@@ -1,3 +1,10 @@
+/*
+ * @Date: 2023-05-17 23:23:13
+ * @LastEditors: kai && neodylan@foxmail.com
+ * @LastEditTime: 2023-05-24 15:57:43
+ * @FilePath: /airbnb/src/views/home/c-cpns/home-section-with-tab/index.jsx
+ * 带横向滚动的选项卡
+ */
 import PropTypes from 'prop-types'
 import React, { memo, useCallback, useState } from 'react'
 import { SectionWrapper } from './style'

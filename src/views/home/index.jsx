@@ -9,6 +9,7 @@ import HomeSection4 from './c-cpns/home-section-4'
 import HomeSectionWithBar from './c-cpns/home-section-with-tab'
 import { isEmptyObj } from '@/utils'
 import HomeLongfor from './c-cpns/home-longfor'
+import HomeSectionScroll from './c-cpns/home-section-scroll'
 
 const Home = memo(() => {
   // 从redux中获取数据
@@ -18,6 +19,7 @@ const Home = memo(() => {
     discountInfo,
     hotRecommendInfo,
     longforInfo,
+    plusInfo,
   } = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
@@ -25,6 +27,7 @@ const Home = memo(() => {
       discountInfo: state.home.discountInfo,
       hotRecommendInfo: state.home.hotRecommendInfo,
       longforInfo: state.home.longforInfo,
+      plusInfo: state.home.plusInfo,
     }),
     shallowEqual
   )
@@ -39,6 +42,10 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
+        {/* plus房源 */}
+        {isEmptyObj(plusInfo) && (
+          <HomeSectionScroll infoData={plusInfo}></HomeSectionScroll>
+        )}
         {/* 向往城市 */}
         {isEmptyObj(longforInfo) && (
           <HomeLongfor infoData={longforInfo}></HomeLongfor>
