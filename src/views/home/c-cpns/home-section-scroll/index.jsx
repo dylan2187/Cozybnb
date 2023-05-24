@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 import ScrollView from '@/base-ui/scroll-view'
 import RoomItem from '@/components/room-item'
+import SectionFooter from '@/components/section-footer'
 
 const HomeSectionScroll = memo((props) => {
   const { infoData } = props
@@ -26,6 +27,7 @@ const HomeSectionScroll = memo((props) => {
           })}
         </ScrollView>
       </div>
+      <SectionFooter name={'plus'}></SectionFooter>
     </SectionWrapper>
   )
 })
