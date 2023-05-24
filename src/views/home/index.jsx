@@ -42,14 +42,6 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        {/* plus房源 */}
-        {isEmptyObj(plusInfo) && (
-          <HomeSectionScroll infoData={plusInfo}></HomeSectionScroll>
-        )}
-        {/* 向往城市 */}
-        {isEmptyObj(longforInfo) && (
-          <HomeLongfor infoData={longforInfo}></HomeLongfor>
-        )}
         {/* 折扣优惠 */}
         {isEmptyObj(discountInfo) && (
           <HomeSectionWithBar infoData={discountInfo}></HomeSectionWithBar>
@@ -58,10 +50,27 @@ const Home = memo(() => {
         {isEmptyObj(hotRecommendInfo) && (
           <HomeSectionWithBar infoData={hotRecommendInfo}></HomeSectionWithBar>
         )}
+        {/* 向往城市 */}
+        {isEmptyObj(longforInfo) && (
+          <HomeLongfor infoData={longforInfo}></HomeLongfor>
+        )}
+        {/* plus房源 */}
+        {isEmptyObj(plusInfo) && (
+          <HomeSectionScroll infoData={plusInfo}></HomeSectionScroll>
+        )}
+
         {/* 高性价比 */}
-        <HomeSection4 infoData={goodPriceInfo} itemWidth={'25%'}></HomeSection4>
+        {isEmptyObj(goodPriceInfo) && (
+          <HomeSection4
+            infoData={goodPriceInfo}
+            itemWidth={'25%'}></HomeSection4>
+        )}
         {/* 高分房源 */}
-        <HomeSection4 infoData={highScoreInfo} itemWidth={'25%'}></HomeSection4>
+        {isEmptyObj(highScoreInfo) && (
+          <HomeSection4
+            infoData={highScoreInfo}
+            itemWidth={'25%'}></HomeSection4>
+        )}
       </div>
     </HomeWrapper>
   )
