@@ -112,7 +112,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # 技术亮点
 
 + 通过React.lazy 和 Suspense 实现路由页面的懒加载，在应用中可以实现按需加载页面组件，从而提高应用的性能和用户体验，封装全局Loading解决白屏
-+ 使用transform: translate封装横向滚动组件**ScrollView**，可复用于横向选项卡滚动/热门城市推荐/plus房源等
++ 利用translate封装横向滚动组件**ScrollView**，可复用于横向选项卡滚动/热门城市推荐/plus房源等
 + 对于展示数据量巨大导致的性能问题，使用无限滚动和虚拟化列表，在滚动和滑动时只加载部分数据，从而提高性能
 + 骨架屏
 
