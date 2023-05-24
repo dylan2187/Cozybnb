@@ -1,17 +1,12 @@
-import * as actionTypes from "./constants"
-
+import * as actionTypes from './constants'
 const initialState = {
-  isLoading: false,
-  currentPage: 0,
-  roomList: [],
-  totalCount: 0
+  currentPage: 0, //当前页码
+  totalCount: 0, //总数据个数
+  roomList: [], //房间列表
 }
 
-
 function reducer(state = initialState, action) {
-  switch(action.type) {
-    case actionTypes.CHANGE_LOADING:
-      return { ...state, isLoading: action.isLoading }
+  switch (action.type) {
     case actionTypes.CHANGE_CURRENT_PAGE:
       return { ...state, currentPage: action.currentPage }
     case actionTypes.CHANGE_TOTAL_COUNT:
