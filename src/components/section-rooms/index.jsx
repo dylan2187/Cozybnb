@@ -5,7 +5,6 @@ import { RoomsWrapper } from './style'
 
 const SectionRooms = memo((props) => {
   const { roomList = [], itemWidth } = props
-  console.log('props', props)
   return (
     <RoomsWrapper>
       {roomList?.slice(0, 8).map((item) => {

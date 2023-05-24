@@ -9,10 +9,6 @@ import ScrollView from '@/base-ui/scroll-view'
 const SectionTabs = memo((props) => {
   const { tabNames = [], tabClick } = props
   const [currentIndex, setCurrentIndex] = useState(0)
-  tabNames.push('haha')
-  tabNames.push('haha')
-  tabNames.push('haha')
-  tabNames.push('haha')
 
   function handleItemClick(index, item) {
     //点击item后，currentIndex改为当前item的index

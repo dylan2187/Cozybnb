@@ -39,3 +39,13 @@ export function getHomeHotRecommendData() {
     url: '/home/hotrecommenddest',
   })
 }
+
+/**
+ * @desc:获取向往城市 
+ * @return: {*}
+ */
+export function getHomeLongforData() {
+  return httpRequest.get({
+    url: '/home/longfor',
+  })
+}
