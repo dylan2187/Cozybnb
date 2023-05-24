@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { memo, useEffect, useRef, useState } from 'react'
 import { ViewWrapper } from './style'
+import IconArrowLeft from '@/assets/svg/icon-arrow-left'
+import IconArrowRight from '@/assets/svg/icon-arrow-right'
 
 const ScrollView = memo((props) => {
   // 定义内部的状态
@@ -22,26 +24,6 @@ const ScrollView = memo((props) => {
   }, [props.children])
 
   // 事件处理的逻辑
-  function rightClickHandle() {
-    const newIndex = posIndex + 1 //
-    const newEl = scrollContentRef.current.children[newIndex]
-    const newElOffsetLeft = newEl.offsetLeft //第一项item距离最左边的偏移量
-    setPosIndex(newIndex) //记录新的索引
-
-    scrollContentRef.current.style.transform = `translate(-${newElOffsetLeft}px)`
-    setShowRight(totalDistanceRef.current > newElOffsetLeft) //可滚动的宽度 是否大于当前item的偏移量，大于的话可以滚，否则不能滚动
-
-    setShowLeft(newElOffsetLeft > 0)
-  }
-  function leftClickHandle() {
-    const newIndex = posIndex - 1
-    const newEl = scrollContentRef.current.children[newIndex]
-    const newElOffsetLeft = newEl.offsetLeft //第一项item距离最左边的偏移量
-    // console.log('newElOffsetLeft', newElOffsetLeft)
-    scrollContentRef.current.style.transform = `translate(-${newElOffsetLeft}px)`
-    setPosIndex(newIndex)
-    setShowLeft(newElOffsetLeft > 0)
-  }
   function controlClickHandle(direction) {
     const newIndex = direction === 'R' ? posIndex + 1 : posIndex - 1
     const newEl = scrollContentRef.current.children[newIndex]
@@ -56,17 +38,19 @@ const ScrollView = memo((props) => {
   return (
     <ViewWrapper>
       {showLeft && (
-        <button className="left" onClick={(e) => controlClickHandle('L')}>
-          左边按钮
-        </button>
+        <div className="control left" onClick={(e) => controlClickHandle('L')}>
+          <IconArrowLeft></IconArrowLeft>
+        </div>
       )}
       {showRight && (
-        <button className="right" onClick={(e) => controlClickHandle('R')}>
-          右边按钮
-        </button>
+        <div className="control right" onClick={(e) => controlClickHandle('R')}>
+          <IconArrowRight></IconArrowRight>
+        </div>
       )}
-      <div className="scroll-content" ref={scrollContentRef}>
-        {props.children}
+      <div className="scroll">
+        <div className="scroll-content" ref={scrollContentRef}>
+          {props.children}
+        </div>
       </div>
     </ViewWrapper>
   )
